@@ -1,6 +1,6 @@
 # Дан список размера N (N — четное число). Поменять местами его первый элемент
 # со вторым, третий — с четвертым и т. д.
-
+import random
 
 def swap_elements(input_list: list):
     for i in range(0, len(input_list), 2):
@@ -11,7 +11,9 @@ def swap_elements(input_list: list):
 if __name__ == "__main__":
     numbers = list()
     try:
-        numbers = [int(i) for i in input("Введите числа через пробел: ").split()]
+        numbers = [random.randint(5, 100) for i in range(1, 5)]
+        print("Список: ")
+        print(numbers)
         if len(numbers) % 2 != 0:
             raise KeyError
 

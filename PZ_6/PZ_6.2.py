@@ -1,5 +1,6 @@
 # Дан список размера N. Найти номер его первого локального минимума (локальный
 # минимум — это элемент, который меньше любого из своих соседей).
+import random
 
 def find_local_minimum(numbers: list) -> int:
     n = len(numbers)
@@ -21,7 +22,9 @@ def find_local_minimum(numbers: list) -> int:
 if __name__ == "__main__":
     numbers = list()
     try:
-        numbers = [int(i) for i in input("Введите числа через пробел: ").split()]
+        numbers = [random.randint(5, 100) for i in range(1, 5)]
+        print("Список: ")
+        print(numbers)
 
         index = find_local_minimum(numbers)
         if index != -1:
