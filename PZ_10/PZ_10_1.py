@@ -23,7 +23,7 @@ def all_books():
         all_book.update(books)
 
     print("Полный список всех книг магазинов:")
-    print(all_book)
+    print(list(all_book))
 
 
 def search_book_all_market() -> set:
@@ -42,8 +42,10 @@ def search_first_book():
 
 if __name__ == "__main__":
     all_books()
+    print()
 
     print("Книги, которые есть во всех магазинах:")
-    print(search_first_book())
+    print(next(iter(search_book_all_market())))
+    print()
 
     search_first_book()
