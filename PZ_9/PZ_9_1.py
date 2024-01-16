@@ -63,14 +63,15 @@ class SalesStatistics:
         result = [f"Общая сумма продаж {fruit} за {len(num)} дней: {sum(num)} штук" for fruit, num in self.__fruit_dict.items()]
         return "\n".join(result)
 
+    def __call__(self, *args, **kwargs):
+        print("Минимальные продажи:")
+        print(self.min_sales())
+        print("Максимальные продажи:")
+        print(self.max_sales())
+
 
 if __name__ == "__main__":
     a = SalesStatistics("апельсины 45 991 63 100 12 яблоки 13 47 26 0 16")
-
-    print("Минимальные продажи:")
-    print(a.min_sales())
-    print("Максимальные продажи:")
-    print(a.max_sales())
-
+    a()
     print()
     print(a)
