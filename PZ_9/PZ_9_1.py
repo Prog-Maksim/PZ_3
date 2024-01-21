@@ -30,7 +30,7 @@ class SalesStatistics:
 
         if fruits_dict is not None:
             return fruits_dict
-        raise ValueError("Invalid string fruit")
+        raise ValueError("Ошибка преобразования строки")
 
     def __stats(self) -> None:
         """
