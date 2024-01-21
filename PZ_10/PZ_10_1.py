@@ -8,44 +8,16 @@
 # 2. Какие книги есть во всех магазинах.
 # 3. Хотя бы одну книгу, которая есть не во всех магазинах.
 
+magistr = {'Лермонтов', 'Достоевский', 'Пушкин', 'Тютчев'}
+home_books = {'Толстой', 'Грибоедов', 'Чехов', 'Пушкин'}
+market = {'Пушкин', 'Достоевский', 'Маяковский'}
+gallery = {'Чехов', 'Тютчев', 'Пушкин'}
 
-book_collections = {
-    "Магистр": ["Лермонтов", "Достоевский", "Пушкин", "Тютчев"],
-    "ДомКниги": ["Толстой", "Грибоедов", "Чехов", "Пушкин"],
-    "БукМаркет": ["Пушкин", "Достоевский", "Маяковский"],
-    "Галерея": ["Чехов", "Тютчев", "Пушкин"]
-}
-all_book = set()
+all_books = magistr.union(home_books, market, gallery)
+print("Полный список всех книг магазинов:", list(all_books))
 
+in_all_stores = market.intersection(home_books, market, gallery)
+print("Книги, которые есть во всех магазинах:", next(iter(in_all_stores)))
 
-def all_books():
-    for books in book_collections.values():
-        all_book.update(books)
-
-    print("Полный список всех книг магазинов:")
-    print(list(all_book))
-
-
-def search_book_all_market() -> set:
-    common_books = set(book_collections["Магистр"])
-    for books in book_collections.values():
-        common_books.intersection_update(books)
-
-    return common_books
-
-
-def search_first_book():
-    unique_books = all_book.difference(search_book_all_market())
-    print("Книга, которая есть не во всех магазинах:")
-    print(next(iter(unique_books)))
-
-
-if __name__ == "__main__":
-    all_books()
-    print()
-
-    print("Книги, которые есть во всех магазинах:")
-    print(next(iter(search_book_all_market())))
-    print()
-
-    search_first_book()
+not_in_all_stores = all_books.difference(in_all_stores)
+print("Хотя бы одна книга, которая есть не во всех магазинах:", not_in_all_stores.pop())
