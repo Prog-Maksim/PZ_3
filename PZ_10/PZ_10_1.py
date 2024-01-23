@@ -13,7 +13,7 @@ home_books = {'Толстой', 'Грибоедов', 'Чехов', 'Пушки�
 market = {'Пушкин', 'Достоевский', 'Маяковский'}
 gallery = {'Чехов', 'Тютчев', 'Пушкин'}
 
-all_books = magistr.union(home_books, market, gallery)
+all_books = magistr.union(home_books, market, gallery, magistr)
 print("Полный список всех книг магазинов:", list(all_books))
 
 in_all_stores = market.intersection(home_books, market, gallery)
