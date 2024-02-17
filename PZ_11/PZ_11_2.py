@@ -9,7 +9,7 @@ from chardet.universaldetector import UniversalDetector
 
 def search_charset(file_name: str) -> str:
     """
-    Функция для определения кодироки файла
+    Определение кодироки файла
     :param file_name: путь до файла
     :return: кодировка файла
     """
@@ -32,12 +32,12 @@ def read_file(file_name: str) -> str:
 
 
 def proccessing_data_punctuation(text: str) -> int:
-    punctiation_library = ['.', ',', ':', ';', '?', '«', '»']
+    punctuation_library = ['.', ',', ':', ';', '?', '«', '»']
     count_punctuation = 0
 
     new_text = ' '.join(text.split('\n')[:4])
     for i in new_text:
-        if i in punctiation_library:
+        if i in punctuation_library:
             count_punctuation += 1
 
     return count_punctuation
