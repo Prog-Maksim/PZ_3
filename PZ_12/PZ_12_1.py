@@ -7,7 +7,7 @@ import random
 
 
 def main():
-    number_list = [random.randint(111, 999) for _ in range(random.randint(10, 100))]
+    number_list = [random.randint(1, 9) for _ in range(random.randint(10, 100))]
     print(f"Последовательность чисел: \n{number_list}")
 
     sort_list_1 = [i for i in number_list if (i % 3) == 0]
