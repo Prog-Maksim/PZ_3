@@ -14,14 +14,10 @@ def processing_data() -> tuple:
     try:
         correct_file = open('correct_numbers.txt', 'w', encoding="utf-8")
         incorrect_file = open('incorrect_numbers.txt', 'w', encoding="utf-8")
-
         correct_count = 0
         incorrect_count = 0
-
-        # Регулярное выражение для поиска номеров телефонов
         phone_pattern = re.compile(r'\b\d{11}\b')
 
-        # Перебираем строки и ищем номера телефонов
         for line in read_file():
             match = re.search(phone_pattern, line)
             if match:
