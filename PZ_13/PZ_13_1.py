@@ -2,19 +2,19 @@
 import random
 
 
-def print_array(matrix: list) -> None:
+def print_array(matrix: list[list]) -> None:
     txt: str = ""
     for i in matrix:
         txt = f"{txt}{i}\n"
     print(txt)
 
 
-def create_matrix(array_size) -> list:
+def create_matrix(array_size) -> list[list]:
     matrix = [[random.randint(1, 51) for _ in range(array_size)] for _ in range(array_size)]
     return matrix
 
 
-def square_matrix(matrix: list) -> list:
+def square_matrix(matrix: list[list]) -> list[list]:
     return [[matrix[i][j] * 2 if i == j else matrix[i][j] for j in range(len(matrix[i]))] for i in range(len(matrix))]
 
 
