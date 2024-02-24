@@ -15,9 +15,7 @@ def create_matrix(array_size) -> list:
 
 
 def square_matrix(matrix: list) -> list:
-    for i in range(len(matrix)):
-        matrix[i][i] *= 2
-    return matrix
+    return [[matrix[i][j] * 2 if i == j else matrix[i][j] for j in range(len(matrix[i]))] for i in range(len(matrix))]
 
 
 def main() -> None:

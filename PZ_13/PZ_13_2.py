@@ -11,7 +11,7 @@ def print_array(matrix: list) -> None:
 
 
 def create_matrix(num_rows: int, num_cols: int) -> list:
-    matrix = [[random.randint(1, 51) for _ in range(num_cols)] for _ in range(num_rows)]
+    matrix = [[random.randint(-2, 5) for _ in range(num_cols)] for _ in range(num_rows)]
     return matrix
 
 
