@@ -2,20 +2,30 @@
 import random
 
 
-def create_matrix(num_rows: int, num_cols: int) -> list:
-    matrix = [[random.randint(1, 51) for _ in range(num_cols)] for _ in range(num_rows)]
+def print_array(matrix: list) -> None:
+    txt: str = ""
+    for i in matrix:
+        txt = f"{txt}{i}\n"
+    print(txt)
+
+
+def create_matrix(array_size) -> list:
+    matrix = [[random.randint(1, 51) for _ in range(array_size)] for _ in range(array_size)]
     return matrix
 
 
 def square_matrix(matrix: list) -> list:
-    return [matrix[i][i] for i in range(len(matrix))]
+    for i in range(len(matrix)):
+        matrix[i][i] *= 2
+    return matrix
 
 
-def main():
-    matrix = create_matrix(5, 5)
-    print(f"Исходная матрица: \n{matrix}")
-    print("Матрица с значениями главной диагонали возведенне во вторую степень:")
-    print(square_matrix(matrix))
+def main() -> None:
+    matrix = create_matrix(5)
+    print(f"Исходная матрица:")
+    print_array(matrix)
+    print("Матрица с значениями главной диагонали увеличенные в 2 раза:")
+    print_array(square_matrix(matrix))
 
 
 if __name__ == "__main__":
