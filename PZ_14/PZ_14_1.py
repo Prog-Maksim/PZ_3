@@ -12,27 +12,21 @@ def read_file() -> str:
 
 def processing_data() -> tuple:
     try:
-        correct_file = open('correct_numbers.txt', 'w', encoding="utf-8")
-        incorrect_file = open('incorrect_numbers.txt', 'w', encoding="utf-8")
-        correct_count = 0
-        incorrect_count = 0
         phone_pattern = re.compile(r'\b\d{11}\b')
 
-        for line in read_file():
-            match = re.search(phone_pattern, line)
-            if match:
-                correct_file.write(line)
-                correct_count += 1
-            else:
-                incorrect_file.write(line)
-                incorrect_count += 1
+        correct_count = sum(1 for line in read_file() if re.search(phone_pattern, line))
+        incorrect_count = sum(1 for line in read_file() if not re.search(phone_pattern, line))
+
+        with open('correct_numbers.txt', 'w', encoding="utf-8") as correct_file, open('incorrect_numbers.txt', 'w', encoding="utf-8") as incorrect_file:
+            for line in read_file():
+                if re.search(phone_pattern, line):
+                    correct_file.write(line)
+                else:
+                    incorrect_file.write(line)
 
         return correct_count, incorrect_count
     except Exception as error:
         print(error)
-    finally:
-        correct_file.close()
-        incorrect_file.close()
 
 
 def main() -> None:
