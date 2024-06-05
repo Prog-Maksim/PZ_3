@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
+# Дано трехзначное число. Вывести вначале его последнюю цифру (единицы), а затем - его среднюю цифру (десятки)
 
 def main_number(number: int) -> None:
     last_digit = number % 10
